@@ -62,17 +62,13 @@ export default function ReactPdfBasic({ sourceUrl, filename }: { sourceUrl: stri
         </div>
         <div className="flex-1" />
         <div className="flex gap-2">
-          <a onClick={() => saveAs(sourceUrl, filename)} className="btn btn-circle btn-ghost"><Download /></a>
-          <button className={`btn btn-circle ${isChatShown ? "btn-info" : "btn-ghost"}`} onClick={() => setChatShown(!isChatShown)}>
-            <BotMessageSquare />
-          </button>
-          <button className="btn btn-sm hidden" onClick={() => setContentShown(!isContentShown)}><FileText /></button>
+          <button onClick={() => saveAs(sourceUrl, filename)} className="btn btn-circle btn-ghost"><Download /></button>
         </div>
       </div>
 
       {/* Main Content */}
-      <Document file={sourceUrl} onLoadSuccess={onDocumentLoadSuccess} loading={<PdfLoading />} className="flex-1 bg-base-100 overflow-y-auto">
-        <div className="h-full flex bg-base-200">
+      <Document file={sourceUrl} onLoadSuccess={onDocumentLoadSuccess} loading={<PdfLoading />} className="flex-1 overflow-y-auto">
+        <div className="h-full flex bg-gray-200">
           {isThumbnailShown ? <div className="flex flex-col max-w-xs flex flex-col py-4 border-r overflow-y-scroll">
             {/* Thumbnails */}
             {arrPages.map((element: number) =>
