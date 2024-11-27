@@ -2,7 +2,7 @@
 
 import { saveAs } from 'file-saver';
 import { useIntersectionObserver } from "@wojtekmaj/react-hooks";
-import { BookImage, BotMessageSquare, Download, FileText, RotateCcw, ZoomIn, ZoomOut } from 'lucide-react';
+import { BookImage, Download, RotateCcw, ZoomIn, ZoomOut } from 'lucide-react';
 import { useCallback, useState } from 'react';
 import { Document, Page, pdfjs, Thumbnail } from 'react-pdf';
 import 'react-pdf/dist/Page/AnnotationLayer.css';
@@ -15,10 +15,7 @@ export default function ReactPdfBasic({ sourceUrl, filename }: { sourceUrl: stri
   const [scale, setScale] = useState<number>(1);
   const [visiblePages, setVisiblePages] = useState<Record<number, boolean>>({});
   const [rotation, setRotation] = useState<number>(0);
-
   const [isThumbnailShown, setTumbnailShown] = useState<boolean>(false);
-  const [isChatShown, setChatShown] = useState<boolean>(true);
-  const [isContentShown, setContentShown] = useState<boolean>(false);
 
   const arrPages = [...Array(numPages).keys()];
 

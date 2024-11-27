@@ -1,4 +1,4 @@
-import ReactPdfBasic from "./ReactPdfBasic"
+import ReactPdfBasic from "../lib/ReactPdfBasic"
 
 function App() {
   return (
